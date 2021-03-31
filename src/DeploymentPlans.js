@@ -5,7 +5,7 @@ import Collapse from "@material-ui/core/Collapse";
 import IconButton from "@material-ui/core/IconButton";
 import TableCell from "@material-ui/core/TableCell";
 import TableRow from "@material-ui/core/TableRow";
-import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
+import ExpandMoreRoundedIcon from '@material-ui/icons/ExpandMoreRounded';
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 import LockOpenIcon from '@material-ui/icons/LockOpen';
 import LockIcon from '@material-ui/icons/Lock';
@@ -17,7 +17,7 @@ function DeploymentPlans(props) {
       <TableRow className={"secondaryRow"}>
          <TableCell>
             <IconButton size="small" onClick={() =>setOpen(!open)}>
-               {open ? <KeyboardArrowUpIcon />: <KeyboardArrowDownIcon />}
+               {open ? <KeyboardArrowUpIcon color="primary"/>: <ExpandMoreRoundedIcon color="primary"/>}
             </IconButton>
          </TableCell>
          <TableCell component="th" scope="row">
@@ -32,18 +32,16 @@ function DeploymentPlans(props) {
         <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
          <Collapse in={open} timeout="auto" unmountOnExit>
             <Box margin={1}>
-              <p><b>Description: </b> {props.description}</p>
-              
+              <p><b>Deployment Description: </b> {props.description}</p>             
                   {props.deployments.map(deployment => {
                      return <Deployment key={deployment.device.id} {...deployment}/>
-                  })}
-              
+                  })}              
             </Box>
          </Collapse>
         </TableCell>
       </TableRow>
     </React.Fragment>
-    ) 
+   ) 
 }
 
 export default DeploymentPlans;

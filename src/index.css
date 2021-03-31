@@ -8,7 +8,7 @@
 }
 
 .secondaryRow {
-  background-color: #b3e5fc;
+  background-color: #e0e0e0;
 }
 
 .deviceNameCell {
@@ -16,9 +16,9 @@
 }
 
 .innerTableHead {
-  background-color: #e0e0e0;
+  background-color: #b3e5fc;
 }
 
 .innerTableBody {
-  background-color: #f5f5f5;
+  background-color: #e1f5fe;
 }
