@@ -2,12 +2,12 @@ name: CI_DEPLOY
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    
+
     steps:
       - uses: actions/checkout@v2
 
@@ -18,12 +18,12 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-      
+
       - name: Deploy
         run: |
           git config --global user.name "samkoi"
           git config --global user.email "samitkoirala@hotmail.com"
-          git remote set-url origin https://${personal_access_token}@github.com/deployment
+          git remote set-url origin https://${personal_access_token}@github.com/samkoi/deployment
           npm run deploy
         env:
           personal_access_token: ${{ secrets.ACCESS_TOKEN_DEPLOY }}
